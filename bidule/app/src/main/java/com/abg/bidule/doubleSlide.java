@@ -43,13 +43,11 @@ public class doubleSlide extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int action = motionEvent.getActionMasked();
 
-                if(action == MotionEvent.ACTION_MOVE && motionEvent.getPointerCount() == 2) {
+                if (action == MotionEvent.ACTION_MOVE && motionEvent.getPointerCount() == 2) {
 
                     Toast.makeText(doubleSlide.this, "Bien joué", Toast.LENGTH_SHORT).show();
                     return true;
-                }
-
-                else {
+                } else {
                     showNotification(doubleSlide.this, "Indice", listMessages.get(indexMessages).toString());
                     indexMessages++;
                 }
@@ -82,3 +80,6 @@ public class doubleSlide extends AppCompatActivity {
                 .setAutoCancel(true);
 
         // Show the notification
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
+    }
+}
